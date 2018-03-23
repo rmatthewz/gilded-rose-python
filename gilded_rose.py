@@ -61,8 +61,6 @@ class GildedRose:
 
     @staticmethod
     def update_conjured(item):
-        if item.sell_in == 0:
-            item.quality -= 1
-        item.quality -= 1
+        item.quality -= 2
         item.sell_in -= 1
         return item

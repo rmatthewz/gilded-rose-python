@@ -6,9 +6,7 @@ class Conjured(Item):
         super().__init__(name, sell_in, quality)
 
     def calc(self):
-        if self.sell_in == 0:
-            self.quality -= 1
-        self.quality -= 1
+        self.quality -= 2
         self.sell_in -= 1
 
 

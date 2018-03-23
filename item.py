@@ -4,3 +4,6 @@ class Item:
         self.sell_in = sell_in
         self.quality = quality
 
+    def calc(self):
+        pass
+

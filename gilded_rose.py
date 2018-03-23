@@ -13,11 +13,9 @@ class GildedRose:
                           "Conjured Mana Cake": Conjured
                           }
         for i in range(0, len(items)):
-
+            object_name = Normal
             if items[i].name in name_class_map:
                 object_name = name_class_map[items[i].name]
-            else:
-                object_name = Normal
 
             if object_name:
                 new_object = object_name(items[i])

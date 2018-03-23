@@ -1,3 +1,10 @@
+from brie import Brie
+from backstage_pass import BackstagePass
+from sulfuras import Sulfuras
+from normal import Normal
+from conjured import Conjured
+
+
 class GildedRose:
     @staticmethod
     def update_quality(items):
@@ -18,51 +25,30 @@ class GildedRose:
 
     @staticmethod
     def update_normal(item):
-        if item.sell_in == 0:
-            item.quality -= 2
-        else:
-            item.quality -= 1
-        item.sell_in -= 1
-        return item
+        normal = Normal(item.name, item.sell_in, item.quality)
+        normal.calc()
+        return normal
 
     @staticmethod
     def update_aged_brie(item):
-        if item.sell_in <= 10:
-            item.quality += 1
-        if item.sell_in <= 5:
-            item.quality += 1
-        if item.sell_in <= 0:
-            item.quality = 0
-        else:
-            item.quality += 1
-        if item.quality >= 50:
-            item.quality = 50
-        item.sell_in -= 1
-        return item
+        brie = Brie(item.name, item.sell_in, item.quality)
+        brie.calc()
+        return brie
 
     @staticmethod
     def update_backstage_pass(item):
-        if item.sell_in <= 10:
-            item.quality += 1
-        if item.sell_in <= 5:
-            item.quality += 1
-        if item.sell_in <= 0:
-            item.quality = 0
-        else:
-            item.quality += 1
-        if item.quality >= 50:
-            item.quality = 50
-        item.sell_in -= 1
-        return item
+        backstage_pass = BackstagePass(item.name, item.sell_in, item.quality)
+        backstage_pass.calc()
+        return backstage_pass
 
     @staticmethod
     def update_sulfuras(item):
-        return item
+        sulfuras = Sulfuras(item.name, item.sell_in, item.quality)
+        sulfuras.calc()
+        return sulfuras
 
     @staticmethod
     def update_conjured(item):
-        if item.sell_in == 0:
-            item.quality -= 1
-        item.quality -= 1
-        item.sell_in -= 1
-        return item
+        conjured = Conjured(item.name, item.sell_in, item.quality)
+        conjured.calc()
+        return conjured
